@@ -1,7 +1,5 @@
 package com.training;
 
-import java.util.Arrays;
-
 /**
  * {@link Fibonacci} has methods to calculate n'th Fibonacci number
  * with and without recursion. In case of recursive call, it also
@@ -17,12 +15,6 @@ import java.util.Arrays;
 
 public class Fibonacci {
     private static final String ILLEGAL_ARGUMENT_EXCEPTION_MESSAGE = "n cannot be less than 0.";
-    private int[] memo;
-
-    Fibonacci() {
-        memo = new int[100];
-        Arrays.fill(memo, -1);
-    }
 
     /**
      * Returns the n'th Fibonacci number iteratively.
@@ -70,12 +62,7 @@ public class Fibonacci {
             return 1;
         }
 
-        if (memo[n] > -1) {
-            return memo[n];
-        }
-
-        memo[n] = fibUsingDoubleRecursion(n - 2) + fibUsingDoubleRecursion(n - 1);
-        return memo[n];
+        return fibUsingDoubleRecursion(n - 2) + fibUsingDoubleRecursion(n - 1);
     }
 
     /**
